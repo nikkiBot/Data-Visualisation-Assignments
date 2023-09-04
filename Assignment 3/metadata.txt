@@ -1,0 +1,48 @@
+#### Received MetaData :
+metadata = {
+   "@type": "dataset",
+   "title": "Telangana Temperature Data from 2013 to 2017",
+   "identifier": "62a1cc18-7613-460b-a0b1-4b71c78fa1ce",
+   "description": "<p><strong>Organisation: Commissioner of Agriculture<\/strong><\/p>\n\n<p>This dataset provides information about the monthly minimum and maximum averages of temperature from all 584 weather stations across the state of Telangana from June 2013 to December 2017.<\/p>\n",
+   "modified": "2022-12-12T18:21:51+00:00",
+   "accessLevel": "public",
+   "keyword": [
+      "weather",
+      "temperature",
+      "agriculture"
+   ],
+   "distribution": [
+      {
+         "title": "Monthly Maximum Temperature",
+         "identifier": "cc9950ce-89aa-455b-847b-d87756db8f91",
+         "downloadURL": "https://data.telangana.gov.in/sites/default/files/Monthly%20Maximum%20Temperature.csv",
+         "format": "csv"
+      },
+      {
+         "title": "Monthly Minimum Temperature",
+         "identifier": "fbe43bc2-9e94-47ac-b0ef-3dfd8f27294d",
+         "downloadURL": "https://data.telangana.gov.in/sites/default/files/Monthly%20Minimum%20Temperature.csv",
+         "format": "csv"
+      }
+   ],
+   "license": "License Not Specified",
+   "theme": [
+      "Agriculture"
+   ],
+   "author": "Telangana State Development Planning Society",
+   "accrualPeriodicity": "2",
+   "granularity": "Mandal Level",
+   "contactPoint": {
+      "fn": "Telangana Open Data Unit",
+      "hasEmail": "opendata@telangana.gov.in"
+   },
+   "publisher": {
+      "@type": "org:Organization",
+      "name": "Agriculture and Co-operation"
+   }
+}
+
+# Query the above json to get both downloadURLs
+
+max_downloadURL = metadata['distribution'][0]['downloadURL']
+min_downloadURL = metadata['distribution'][1]['downloadURL']
