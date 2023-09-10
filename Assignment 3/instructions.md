@@ -23,7 +23,7 @@
 ## Data Preparation and Cleaning component -
 
 - Extract the data rows corresponding to Medchal district and Kapra Mandal from the data frames. 
-- You may combine the two rows into a single data frame if it helps in creating the visualization.
+- You may combine the two rows into a single data frame
   
 ```df = pd.concat([df_max, df_min], axis=1)``` 
 - You may also use the following code to extract the data rows corresponding to Medchal district and Kapra Mandal from the data frames.
@@ -48,4 +48,8 @@
 - Create line plots using either of plotly.express and seaborn to show the minimum and maximum temperatures for the months and years available in the dataset.
 - Sample Visuals from plotly express and seaborn are attached.
 - (Note: Most of the concepts used in this assignments will be covered during the week's practice session.)
+
+
+
+
 
