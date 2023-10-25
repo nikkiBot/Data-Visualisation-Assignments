@@ -1,27 +1,22 @@
-import pandas as pd
+import requests
 
-# Create the original dataframe
-data = {
-    'Jun-13': [(33.8, 24.6)],
-    'Jul-13': [(29.5, 23.5)],
-    'Aug-13': [(29.0, 22.9)],
-    'Sep-13': [(33.1, 22.9)],
-    'Oct-13': [(32.5, 21.5)],
-    'Nov-13': [(30.1, 14.2)],
-    'Dec-13': [(30.0, 10.6)]
-}
+url = "https://www.piday.org/wp-json/millionpi/v1/million?action=example_ajax_request&page={page}"
 
-combined_df = pd.DataFrame(data)
+final_number = []
+for page in range(1, 3):
+    data = requests.get(url.format(page=page)).text
+    final_number.append(data[1:-1])
 
-# Create a new dataframe with multi-level indexing
-new_df = pd.DataFrame()
+final_number = "".join(final_number)
+# print(final_number)
 
-for column in combined_df.columns:
-    min_val, max_val = zip(*combined_df[column].tolist())
-    new_df[(column, 'min')] = min_val
-    new_df[(column, 'max')] = max_val
-
-# Add multi-level indexing
-new_df.columns = pd.MultiIndex.from_tuples(new_df.columns, names=['Month', 'Min/Max'])
-
-print(new_df)
+# Calculate sum of first n digits of final_number
+n = 314159
+sum = 0
+for digit in final_number: 
+    if digit.isdigit():
+        sum += int(digit)
+    if n == 0:
+        break
+    n -= 1
+print(sum)
